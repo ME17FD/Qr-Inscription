@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inscription Details</title>
+</head>
+<body>
+    <h1>Inscription Details</h1>
+    <p><strong>Name:</strong> {{ inscription.name }}</p>
+    <p><strong>Event:</strong> {{ inscription.event }}</p>
+
+    <h2>QR Code</h2>
+    {% load qr_code %}
+    {% qr_from_text inscription.get_absolute_url options=qr_options %}
+
+    <p><a href="{% url 'inscription_create' %}">Register Another</a></p>
+</body>
+</html>
